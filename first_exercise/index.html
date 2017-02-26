@@ -3,13 +3,18 @@
 <head>
     <title>Starting Angular</title>
 </head>
-<!-- The ng-app directive -->
-<body ng-app='' ng-init="message='Hello world!'; ajsMessage='Hello from AngularJS'">
-    Message: <input type="text" ng-model="message">
-    ajsMessage: <input type="text" ng-model="ajsMessage">
-    <h1 ng-bind="ajsMessage"></h1>
-    <p ng-bind="message"></p>
-    <p> {{message}}</p>
+<!-- The ng-app directive triggers load and setup of AngularJS
+     after the DOM is loaded.
+     It sets the tag as the root of the AngularJS app.  -->
+<body ng-app="cardApp">
+    <!-- Identify the controller and model to be used. -->
+    <div ng-controller="MainController">
+        <!-- The ng-bind gets data from the model. Anything nested in this controller div is supported by the controller -->
+        <h1 ng-bind="greeting"></h1>
+        <br />
+        <h3 ng-bind="subTitle"></h3>
+    </div>
     <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script src="js/controllers.js"></script>
 </body>
 </html>
