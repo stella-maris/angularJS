@@ -11,10 +11,22 @@
     <div ng-controller="MainController">
         <!-- The ng-bind gets data from the model. Anything nested in this controller div is supported by the controller -->
         <h1 ng-bind="greeting"></h1>
+        <select ng-model="orderProp">
+            <option value="suit">Suit</option>
+            <option value="numOrd">Number</option>
+        </select>
         <br />
-        <h3 ng-bind="subTitle"></h3>
+        <table>
+            <tr><th>Number</th><th>Suit</th></tr>
+            <!-- Populate the HTML with each object in the cards model. -->
+            <tr ng-repeat="card in cards | orderBy:orderProp ">
+                <td ng-bind ="card.number"></td>
+                <td ng-bind ="card.suit"></td>
+            </tr>
+        </table>
+        <br />
     </div>
     <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
-    <script src="js/controllers1.js"></script>
+    <script src="js/controllers.js"></script>
 </body>
 </html>
