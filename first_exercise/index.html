@@ -4,8 +4,10 @@
     <title>Starting Angular</title>
 </head>
 <!-- The ng-app directive -->
-<body ng-app='' ng-init="message='Hello world!'">
+<body ng-app='' ng-init="message='Hello world!'; ajsMessage='Hello from AngularJS'">
     Message: <input type="text" ng-model="message">
+    ajsMessage: <input type="text" ng-model="ajsMessage">
+    <h1 ng-bind="ajsMessage"></h1>
     <p ng-bind="message"></p>
     <p> {{message}}</p>
     <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
