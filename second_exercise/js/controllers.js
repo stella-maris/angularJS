@@ -10,6 +10,7 @@ cardApp.controller('MainController', ['$scope', function ($scope) {
     // Here we create an initialize a 'title' model.
     $scope.greeting = "AngularJS Hello World!";
     $scope.orderProp = "numOrd";
+    $scope.orderProp2 = "suits";
     // Define cards model which stores an array of objects.
     $scope.cards = [
         { "number": "2", "suit": "Hearts", "numOrd": 2 },

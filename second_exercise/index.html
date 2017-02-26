@@ -25,6 +25,9 @@
             </tr>
         </table>
         <br />
+        <ul>
+            <li ng-repeat="card in cards | orderBy:orderProp2">{{card.number}} {{card.suit}}</li>
+        </ul>
     </div>
     <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
     <script src="js/controllers.js"></script>
