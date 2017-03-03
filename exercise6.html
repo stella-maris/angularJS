@@ -12,12 +12,22 @@
                               { "item": "air miles", "checked": false },
                               { "item": "fraud protection", "checked": false }];
             $scope.all = { "item": "all", "checked": false };
+            $scope.update = function () {
+                for(var i = 0; i <$scope.options.length; i++) {
+                    if ($scope.all.checked != true){
+                        $scope.options[i].checked = false;
+                    }
+                    else if ($scope.all.checked = true) {
+                        $scope.options[i].checked = true;
+                    }
+                }
+            }
         }]);
     </script>
 </head>
 <body ng-app="formSample" ng-controller="ExampleController">
     <div>
-        <input type="checkbox"/> {{all.item}}
+        <input type="checkbox" ng-model="all.checked" ng-change="update()"/> {{all.item}}
     </div>
     <div ng-repeat="option in options">
         <input type="checkbox" ng-model="option.checked" /> {{option.item}}
