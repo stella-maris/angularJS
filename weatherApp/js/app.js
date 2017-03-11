@@ -30,11 +30,15 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
                 console.log(weather[i]);
                 document.getElementById('updatedCity').innerHTML = $scope.city = weather[i].cityName;
                 document.getElementById('updatedText').innerHTML = $scope.text = weather[i].text;
-                document.getElementById('updatedHigh').innerHTML = $scope.high = weather[i].high;
-                document.getElementById('updatedLow').innerHTML = $scope.low = weather[i].low;
+                document.getElementById('updatedHigh').innerHTML = $scope.high = "High: " + weather[i].high;
+                document.getElementById('updatedLow').innerHTML = $scope.low = "Low: " + weather[i].low;
             }
         }
     };
+    
+    $scope.celsius = function () {
+        
+    }
     
     $scope.showAlert = function(city)  {
         alert("Hi from " + city);
