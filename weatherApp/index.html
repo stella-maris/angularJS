@@ -18,9 +18,16 @@
         <!-- Our one page app works by switching views here. -->
         <div ng-click="update()">Travel Destinations</div>
         <div ng-repeat="fc in forecast | orderBy:orderProp">
-        Click ->: <label ng-click="showAlert(fc['cityName'])">{{fc['cityName']}}</label><br/>
+        Click ->: <label ng-click="update(fc['cityName'])">{{fc['cityName']}}</label><br/>
         </div>
-        <br/><br/>
+        <br/>
+        <h3 id="updatedCity">{{city}}</h3>
+            <p id="updatedText">{{text}}</p>
+            <p id="updatedHigh">{{high}}</p>
+            <p id="updatedLow">{{low}}</p>
+            <input type="radio" ng-model="fahr" />
+            <input type="radio" ng-model="celsius /">
+        <br/>
         
     </div>
 </body>

@@ -22,12 +22,17 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
     $scope.forecast = $scope.getAllWeather();
     
     
-    $scope.update = function () {
-        console.log(weather);
-        for (var i = 0; i < weather.length; i++) {
-            var sorted = weather[i].cityName.sort();
-            console.log(sorted);
-            console.log(sorted.reverse());
+    $scope.update = function (city) {
+//        console.log(weather);
+        for (var i = 0; i < weather.length; i++) { 
+            var sorted = weather[i].cityName;
+            if (city == sorted) {
+                console.log(weather[i]);
+                document.getElementById('updatedCity').innerHTML = $scope.city = weather[i].cityName;
+                document.getElementById('updatedText').innerHTML = $scope.text = weather[i].text;
+                document.getElementById('updatedHigh').innerHTML = $scope.high = weather[i].high;
+                document.getElementById('updatedLow').innerHTML = $scope.low = weather[i].low;
+            }
         }
     };
     
