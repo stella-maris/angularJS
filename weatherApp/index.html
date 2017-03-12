@@ -20,13 +20,17 @@
         <div ng-repeat="fc in forecast | orderBy:orderProp">
         Click ->: <label ng-click="update(fc['cityName'])">{{fc['cityName']}}</label><br/>
         </div>
-        <br/>
+        <hr/>
         <h3 id="updatedCity">{{city}}</h3>
             <p id="updatedText">{{text}}</p>
             <p id="updatedHigh">{{high}}</p>
             <p id="updatedLow">{{low}}</p>
-            <input type="radio" ng-model="fahr" />
-            <input type="radio" ng-model="celsius" />
+<!--            default radio button displays fahrenheit use ng-show/ng-hide-->
+            <input type="radio" ng-click="fahr" /><span>*F</span>
+<!--            2nd radio button displays celsius-->
+            <input type="radio" ng-click="getTemp()" /><span>*C</span>
+            <p>{{celsiusHigh}}</p>
+            <p>{{celsiusLow}}</p>
         <br/>
         
     </div>

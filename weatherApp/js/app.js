@@ -30,14 +30,26 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
                 console.log(weather[i]);
                 document.getElementById('updatedCity').innerHTML = $scope.city = weather[i].cityName;
                 document.getElementById('updatedText').innerHTML = $scope.text = weather[i].text;
-                document.getElementById('updatedHigh').innerHTML = $scope.high = "High: " + weather[i].high;
-                document.getElementById('updatedLow').innerHTML = $scope.low = "Low: " + weather[i].low;
+                document.getElementById('updatedHigh').innerHTML = $scope.high = weather[i].high;
+                document.getElementById('updatedLow').innerHTML = $scope.low = weather[i].low;
             }
         }
     };
+    //getTemp should retrieve temp from city that was clicked
+    //should make call to getCelsius
+    $scope.getTemp = function () {
+        console.log("getTemp", this);
+        for (var i = 0; i < weather.length; i++) {
+            var highTemp = $scope.high;
+            var lowTemp = $scope.low;
+            $scope.celsiusHigh = $scope.getCelsius(highTemp);
+            $scope.celsiusLow = $scope.getCelsius(lowTemp);
+        }
+    }
     
-    $scope.celsius = function () {
-        
+    $scope.getCelsius = function (f) {
+        var fahr = parseInt(f);
+        return (fahr - 32) *5 / 9;
     }
     
     $scope.showAlert = function(city)  {
