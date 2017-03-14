@@ -12,6 +12,12 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
     $scope.title = "AngularJS Tutorial";
    
     $scope.orderProp = "cityName";
+    $scope.reverseOrder = function () {
+        for (var i = 0; i < weather.length; i++) { 
+            var sorted = weather[i].cityName;
+            console.log("city", sorted);
+        };
+    }
     
     $scope.getAllWeather = function() {
         console.log("I am here");
@@ -27,7 +33,7 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
         for (var i = 0; i < weather.length; i++) { 
             var sorted = weather[i].cityName;
             if (city == sorted) {
-                console.log(weather[i]);
+//                console.log(weather[i]);
                 document.getElementById('updatedCity').innerHTML = $scope.city = weather[i].cityName;
                 document.getElementById('updatedText').innerHTML = $scope.text = weather[i].text;
                 document.getElementById('updatedHigh').innerHTML = $scope.high = weather[i].high;
@@ -38,13 +44,11 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
     //getTemp should retrieve temp from city that was clicked
     //should make call to getCelsius
     $scope.getTemp = function () {
-        console.log("getTemp", this);
-        for (var i = 0; i < weather.length; i++) {
-            var highTemp = $scope.high;
+//        console.log("getTemp", this);
+        var highTemp = $scope.high;
             var lowTemp = $scope.low;
             $scope.celsiusHigh = $scope.getCelsius(highTemp);
             $scope.celsiusLow = $scope.getCelsius(lowTemp);
-        }
     }
     
     $scope.getCelsius = function (f) {

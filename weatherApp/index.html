@@ -17,6 +17,10 @@
         <hr>
         <!-- Our one page app works by switching views here. -->
         <div ng-click="update()">Travel Destinations</div>
+        <select ng-model="orderProp">
+            <option value="cityName">A-Z</option>
+            <option ng-model="reverseOrder">Z-A</option>
+        </select>
         <div ng-repeat="fc in forecast | orderBy:orderProp">
         Click ->: <label ng-click="update(fc['cityName'])">{{fc['cityName']}}</label><br/>
         </div>
