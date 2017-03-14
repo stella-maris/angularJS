@@ -11,13 +11,7 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
     // Define title model.
     $scope.title = "AngularJS Tutorial";
    
-    $scope.orderProp = "cityName";
-    $scope.reverseOrder = function () {
-        for (var i = 0; i < weather.length; i++) { 
-            var sorted = weather[i].cityName;
-            console.log("city", sorted);
-        };
-    }
+    $scope.cityName = "cityName";
     
     $scope.getAllWeather = function() {
         console.log("I am here");
@@ -30,6 +24,7 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
     
     $scope.update = function (city) {
 //        console.log(weather);
+        $scope.clicked = true;
         for (var i = 0; i < weather.length; i++) { 
             var sorted = weather[i].cityName;
             if (city == sorted) {
@@ -43,17 +38,38 @@ weatherApp.controller('AppCtrl', ['$scope', function ($scope) {
     };
     //getTemp should retrieve temp from city that was clicked
     //should make call to getCelsius
-    $scope.getTemp = function () {
-//        console.log("getTemp", this);
-        var highTemp = $scope.high;
-            var lowTemp = $scope.low;
-            $scope.celsiusHigh = $scope.getCelsius(highTemp);
-            $scope.celsiusLow = $scope.getCelsius(lowTemp);
+    $scope.setTemp = "F";
+    $scope.clicked = false;
+    $scope.high = "";
+    $scope.low = "";
+    
+    $scope.getTemp = function (format) {
+        // Implement conversion here.
+        if (!$scope.clicked){
+            return ;
+        }
+        if (format == "C") {
+            $scope.high = $scope.getCelsius($scope.high);
+            $scope.low = $scope.getCelsius($scope.low);
+        } else if (format == "F") {
+            //change back to f
+            $scope.high = $scope.getFahr($scope.high);
+            $scope.low = $scope.getFahr($scope.low);
+        }
+        
+//        alert(format + " " + $scope.city + " " + $scope.high + " " + $scope.low)
     }
     
     $scope.getCelsius = function (f) {
         var fahr = parseInt(f);
-        return (fahr - 32) *5 / 9;
+        var conversion = (fahr - 32) *5 / 9;
+        return Math.round(conversion);
+    }
+    
+    $scope.getFahr = function (c) {
+        var celsius = parseInt(c);
+        var conversion = (celsius * 9/5) + 32;
+        return Math.round(conversion);
     }
     
     $scope.showAlert = function(city)  {

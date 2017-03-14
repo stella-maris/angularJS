@@ -17,24 +17,21 @@
         <hr>
         <!-- Our one page app works by switching views here. -->
         <div ng-click="update()">Travel Destinations</div>
-        <select ng-model="orderProp">
-            <option value="cityName">A-Z</option>
-            <option ng-model="reverseOrder">Z-A</option>
-        </select>
-        <div ng-repeat="fc in forecast | orderBy:orderProp">
+       <input type="radio" ng-model="citySort" value="">A-Z <br>
+       <input type="radio" ng-model="citySort" value="reverse">Z-A <br>
+        <div ng-repeat="fc in forecast | orderBy:cityName:citySort">
         Click ->: <label ng-click="update(fc['cityName'])">{{fc['cityName']}}</label><br/>
         </div>
         <hr/>
+        
         <h3 id="updatedCity">{{city}}</h3>
             <p id="updatedText">{{text}}</p>
             <p id="updatedHigh">{{high}}</p>
             <p id="updatedLow">{{low}}</p>
 <!--            default radio button displays fahrenheit use ng-show/ng-hide-->
-            <input type="radio" ng-click="fahr" /><span>*F</span>
+            <input type="radio" name="mytemperature" ng-click="getTemp('F', clicked)" ng-model="setTemp" value="F" /><span>*F</span>
 <!--            2nd radio button displays celsius-->
-            <input type="radio" ng-click="getTemp()" /><span>*C</span>
-            <p>{{celsiusHigh}}</p>
-            <p>{{celsiusLow}}</p>
+            <input type="radio"  name="mytemperature"  ng-click="getTemp('C', clicked)" ng-model="setTemp" value="C"/><span>*C</span>
         <br/>
         
     </div>
