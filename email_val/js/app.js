@@ -9,7 +9,7 @@
                 controller: 'AboutCtrl'
             })
             
-            .otherwise({redirectsTo: '/home'});
+            .otherwise({redirectTo: '/home'});
         });
 
 //        myApp.controller('ExampleController', ['$scope', function ($scope) {

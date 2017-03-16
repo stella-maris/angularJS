@@ -8,7 +8,11 @@ var myControllers = (function () {
     }]);
     
     ctrls.controller('EmailCtrl', ['$scope', function($scope) {
-        
+        $scope.update = function (email, subject, message) {
+                console.log("email is: ", email);
+                console.log("subject is: ", subject);
+                console.log("message is: ", message);
+        };
     }]);
     
     ctrls.controller('AboutCtrl', ['$scope', function ($scope) {
