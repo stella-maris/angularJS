@@ -13,8 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var app_pagedefault_1 = require('./app.pagedefault');
-var app_page_a_1 = require('./app.page-a');
-var app_page_b_1 = require('./app.page-b');
+var app_home_1 = require('./app.home');
+var app_about_1 = require('./app.about');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
@@ -22,8 +22,9 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent, app_pagedefault_1.PageDefault, app_page_a_1.PageAComponent, app_page_b_1.PageBComponent],
-            bootstrap: [app_component_1.AppComponent]
+            declarations: [app_component_1.AppComponent, app_pagedefault_1.PageDefault,
+                app_home_1.HomeComponent, app_about_1.AboutComponent],
+            bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

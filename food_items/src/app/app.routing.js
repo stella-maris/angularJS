@@ -1,12 +1,12 @@
 "use strict";
 var router_1 = require('@angular/router');
-var app_page_a_1 = require('./app.page-a');
-var app_page_b_1 = require('./app.page-b');
+var app_home_1 = require('./app.home');
+var app_about_1 = require('./app.about');
 var app_pagedefault_1 = require('./app.pagedefault');
 var appRoutes = [
-    { path: 'page-a', component: app_page_a_1.PageAComponent },
-    { path: 'page-b/:id/:firstname', component: app_page_b_1.PageBComponent },
-    { path: '', redirectTo: '/page-a', pathMatch: 'full' },
+    { path: 'home', component: app_home_1.HomeComponent },
+    { path: 'about', component: app_about_1.AboutComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: app_pagedefault_1.PageDefault }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
