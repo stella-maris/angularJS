@@ -1,8 +1,15 @@
 
               <!-- Show cards in unordered list. -->
-              <ul><li *ngFor="let item of items" (click)="onSelect(item)">
+              <!--<ul><li *ngFor="let item of items" (click)="onSelect(item)">
                   {{item.name}}</li>
-             </ul>
+             </ul>-->
+
+             <table>
+                 <tr *ngFor="let item of items" >
+                     <td (click)="onSelect(item)">{{item.id}}</td>
+                     <td>{{item.name}}</td>
+                 </tr>
+             </table>
              <div *ngIf="selectedCard">
                  <h2>{{selectedCard.name}} **</h2>
                  <input [(ngModel)]="selectedCard.name" placeholder="name"/>
