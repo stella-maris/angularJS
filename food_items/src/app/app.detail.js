@@ -9,14 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var DetailComponent = (function () {
-    function DetailComponent() {
+    function DetailComponent(route) {
+        this.route = route;
     }
+    DetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            var localID = params['id'];
+            var localName = params['name'];
+            _this.id = localID;
+            _this.name = localName;
+        });
+    };
     DetailComponent = __decorate([
         core_1.Component({
-            template: "This is DETAILS."
+            template: "Product ID: {{id}}<br/>\n               Product Name: {{name}}<br/>\n               Manufacturer:{{mfg}}<br/>\n               Quantity: {{qty}}<br/>\n               Pack Size: {{pkg}}"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], DetailComponent);
     return DetailComponent;
 }());
