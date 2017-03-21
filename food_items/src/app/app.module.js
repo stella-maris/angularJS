@@ -26,6 +26,7 @@ var AppModule = (function () {
             declarations: [app_component_1.AppComponent, app_pagedefault_1.PageDefault,
                 app_home_1.HomeComponent, app_detail_1.DetailComponent, app_about_1.AboutComponent],
             bootstrap: [app_component_1.AppComponent],
+            providers: [app_home_1.HomeComponent],
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

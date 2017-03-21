@@ -13,5 +13,6 @@ import { routing }        from './app.routing';
     declarations: [AppComponent, PageDefault,
         HomeComponent, DetailComponent, AboutComponent],
     bootstrap: [AppComponent],
+    providers: [HomeComponent],
 })
 export class AppModule { }
