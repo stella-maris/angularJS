@@ -19,11 +19,6 @@ var HomeComponent = (function () {
     function HomeComponent() {
         this.items = FOODITEMS;
     }
-    HomeComponent.prototype.onSelect = function (item) {
-        //console.log(this);
-        this.selectedCard = item;
-        alert(item.name);
-    };
     HomeComponent = __decorate([
         core_1.Component({
             templateUrl: './app/home.html'
@@ -33,7 +28,7 @@ var HomeComponent = (function () {
     return HomeComponent;
 }());
 exports.HomeComponent = HomeComponent;
-// Define card data.
+// Define food data.
 var FOODITEMS = [
     { id: 1, name: "Cucumbers", mfg: "Hot House", pkg: "10 kg", qty: 6 },
     { id: 2, name: "Carrots", mfg: "Hot House", pkg: "8 kg", qty: 14 },

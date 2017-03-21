@@ -10,9 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var app_home_1 = require('./app.home');
 var DetailComponent = (function () {
-    function DetailComponent(route) {
+    function DetailComponent(route, homeComponent) {
         this.route = route;
+        for (var i = 0; i < homeComponent.items.length; i++) {
+            console.log(homeComponent.items[i]);
+        }
     }
     DetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -21,13 +25,14 @@ var DetailComponent = (function () {
             var localName = params['name'];
             _this.id = localID;
             _this.name = localName;
+            //if localID, then loop through FoodItem[] - for obj in key?
         });
     };
     DetailComponent = __decorate([
         core_1.Component({
-            template: "Product ID: {{id}}<br/>\n               Product Name: {{name}}<br/>\n               Manufacturer:{{mfg}}<br/>\n               Quantity: {{qty}}<br/>\n               Pack Size: {{pkg}}"
+            templateUrl: './app/detail.html'
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, app_home_1.HomeComponent])
     ], DetailComponent);
     return DetailComponent;
 }());

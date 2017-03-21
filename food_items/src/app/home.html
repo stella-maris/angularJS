@@ -6,13 +6,9 @@
 
              <table>
                  <tr *ngFor="let item of items" >
-                     <td (click)="onSelect(item)">
-                         <a routerLink="/detail/item.id/item.name" routerLinkActive="active">{{item.id}}</a>
+                     <td >
+                         <a routerLink="/detail/{{item.id}}/{{item.name}}" routerLinkActive="active" >{{item.id}}</a>
                      </td>
                      <td>{{item.name}}</td>
                  </tr>
              </table>
-             <div *ngIf="selectedCard">
-                 <h2>{{selectedCard.name}} **</h2>
-                 <input [(ngModel)]="selectedCard.name" placeholder="name"/>
-              </div>

@@ -9,16 +9,15 @@ export class FoodItem {
     templateUrl: './app/home.html'
 })
 export class HomeComponent {
-        public items = FOODITEMS; 
+    public items = FOODITEMS; 
     selectedCard: FoodItem;
 	
-    onSelect(item: FoodItem) { 
-        //console.log(this);
-        this.selectedCard = item;
-        alert(item.name);
-    }
+    // onSelect(item: FoodItem) { 
+    //     this.selectedCard = item;
+    //     alert(item.name);
+    // }
  }
-// Define card data.
+// Define food data.
 var FOODITEMS: FoodItem[] = [
     { id: 1, name: "Cucumbers", mfg: "Hot House", pkg: "10 kg", qty: 6 },
     { id: 2, name: "Carrots", mfg: "Hot House", pkg: "8 kg", qty: 14 },
