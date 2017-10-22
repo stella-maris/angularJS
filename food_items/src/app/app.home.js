@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var myDataService_1 = require('./myDataService');
 var FoodItem = (function () {
     function FoodItem() {
     }
@@ -16,23 +17,28 @@ var FoodItem = (function () {
 }());
 exports.FoodItem = FoodItem;
 var HomeComponent = (function () {
-    function HomeComponent() {
+    // Create instance of 'MyDataService' right in the constructor
+    // header.
+    function HomeComponent(myDataService) {
         this.items = FOODITEMS;
+        // Use service to call getNames() method.
+        this.names = myDataService.getNames();
     }
     HomeComponent = __decorate([
         core_1.Component({
-            templateUrl: './app/home.html'
+            templateUrl: './app/home.html',
+            providers: [myDataService_1.MyDataService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [myDataService_1.MyDataService])
     ], HomeComponent);
     return HomeComponent;
 }());
 exports.HomeComponent = HomeComponent;
 // Define food data.
-var FOODITEMS = [
-    { id: 1, name: "Cucumbers", mfg: "Hot House", pkg: "10 kg", qty: 6 },
-    { id: 2, name: "Carrots", mfg: "Hot House", pkg: "8 kg", qty: 14 },
-    { id: 3, name: "Cheese", mfg: "Hot House", pkg: "5 kg", qty: 20 },
-    { id: 4, name: "French Fries", mfg: "McCain", pkg: "15 kg", qty: 8 }
-];
+// var FOODITEMS: FoodItem[] = [
+//     { id: 1, name: "Cucumbers", mfg: "Hot House", pkg: "10 kg", qty: 6 },
+//     { id: 2, name: "Carrots", mfg: "Hot House", pkg: "8 kg", qty: 14 },
+//     { id: 3, name: "Cheese", mfg: "Hot House", pkg: "5 kg", qty: 20 },
+//     { id: 4, name: "French Fries", mfg: "McCain", pkg: "15 kg", qty: 8 }
+// ];
 //# sourceMappingURL=app.home.js.map

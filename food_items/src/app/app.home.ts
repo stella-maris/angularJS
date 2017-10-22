@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyDataService } from './myDataService';
 
 export class FoodItem {
     id: number;
@@ -6,16 +7,20 @@ export class FoodItem {
 }
 
 @Component({
-    templateUrl: './app/home.html'
+    templateUrl: './app/home.html',
+    providers: [MyDataService]
 })
 export class HomeComponent {
     public items = FOODITEMS; 
     selectedCard: FoodItem;
-	
-    // onSelect(item: FoodItem) { 
-    //     this.selectedCard = item;
-    //     alert(item.name);
-    // }
+	names: Array<any>;
+    // Create instance of 'MyDataService' right in the constructor
+    // header.
+    constructor(myDataService: MyDataService) {
+        // Use service to call getNames() method.
+        this.names = myDataService.getNames();
+    }
+
  }
 // Define food data.
 var FOODITEMS: FoodItem[] = [

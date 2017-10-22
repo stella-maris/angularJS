@@ -28,6 +28,10 @@ var DetailComponent = (function () {
             //if localID, then loop through FoodItem[] - for obj in key?
         });
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], DetailComponent.prototype, "id", void 0);
     DetailComponent = __decorate([
         core_1.Component({
             templateUrl: './app/detail.html'

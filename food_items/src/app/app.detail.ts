@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Params }       from '@angular/router';
 import { HomeComponent } from './app.home';
 
@@ -7,6 +7,7 @@ import { HomeComponent } from './app.home';
     templateUrl: './app/detail.html'
 })
 export class DetailComponent {
+    @Input()
     id:number;
     name:string;
     mfg: string;
@@ -17,9 +18,10 @@ export class DetailComponent {
     constructor(private route: ActivatedRoute, homeComponent: HomeComponent) {
         for (var i = 0; i < homeComponent.items.length; i++) {
             console.log(homeComponent.items[i]);
+            
             // this.mfg = homeComponent.items[i].mfg;
             // this.pkg = homeComponent.items[i].pkg;
-            // this. qty = homeComponent.items[i].qty;
+            // this.qty = homeComponent.items[i].qty;
         }
     }
 
