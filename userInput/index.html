@@ -22,6 +22,8 @@
             <hr>
             
             <h2 ng-bind="secondTitle"></h2>
+            <input type="text" ng-model="instantUpdate">
+            <p ng-bind="instantUpdate"></p>
 <!--
             3 steps: 
             input = ng-model
@@ -30,8 +32,14 @@
 -->
            <input type="text" ng-model="toDo">
            <ul>
-               <li ng-bind="toDo"></li>
+               <li ng-repeat="item in toDoItem">{{item}}</li>
            </ul>
+           <!--
+               To save the to-do item:
+               1. Create button with ng-click directive
+               2. Add function to controllers.js
+-->
+            <button ng-click="update(toDo)">Update</button>
         </div>
         <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
         <script src="js/controllers.js"></script>

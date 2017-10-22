@@ -14,4 +14,16 @@ maryApp.controller('MainController', ['$scope', function($scope) {
     $scope.secondTitle = "To do list";
     //Create model for user input
     $scope.toDo = "Type anything...";
+//    Add function to save items
+//    $scope.update = function(input) {
+//        $scope.toDoItem = input;
+//    }
+//      Instantiate empty array outside of update function so that all items are added
+        var items = [];
+        $scope.update = function(input) {
+        var item  = input;
+        items.push(item);
+            console.log(items);
+        $scope.toDoItem = items;
+    }
 }]);
