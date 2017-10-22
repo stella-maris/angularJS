@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Angular 1 Exercise</title>
+        <title>Angular 1 Sorting Exercise</title>
     </head>
     <body ng-app="maryApp">
         <div ng-controller="MainController">
@@ -19,9 +19,9 @@
                     <td ng-bind ="card.suit"></td>
                 </tr>
             </table>
-            
+            <!--Unordered list specifies order by suit-->
             <ul>
-                <li ng-repeat="card in cards">
+                <li ng-repeat="card in cards | orderBy:'suit'">
                     {{card.number}} - {{card.suit}}
                 </li>
             </ul>
